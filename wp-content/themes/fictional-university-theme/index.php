@@ -1,11 +1,11 @@
-<h1>This is header area</h1>
+<?php get_header(); ?>
 
 <?php while (have_posts()): the_post(); ?>
     
-    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-    <p><?php the_content(); ?></p>
+    <h2><a href="<?= get_permalink(); ?>"><?= get_the_title(); ?></a></h2>
+    <p><?= get_the_content(); ?></p>
     <hr>
 
-<?php endwhile ?>
+<?php endwhile; ?>
 
-<h1>This is footer area</h1>
+<?php get_footer(); ?>
