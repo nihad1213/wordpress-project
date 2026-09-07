@@ -22,5 +22,7 @@ RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype \
 RUN a2enmod rewrite
 
 COPY php.ini /usr/local/etc/php/conf.d/wordpress.ini
+COPY apache-overrides.conf /etc/apache2/conf-available/apache-overrides.conf
+RUN a2enconf apache-overrides
 
 WORKDIR /var/www/html
