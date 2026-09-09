@@ -23,9 +23,9 @@
               <li><a href="#">Blog</a></li>
             </ul> -->
             <?php
-              wp_nav_menu(array(
+              wp_nav_menu([
                 'theme_location' => 'headerMenuLocation'
-              ));
+              ]);
             ?>
           </nav>
           <div class="site-header__util">
