@@ -25,6 +25,31 @@
     </div>
   <?php endif; ?>
   
+    <?php 
+      $theParent = wp_get_post_parent_id(get_the_ID());
+      $hasChildren = get_pages(array('child_of' => get_the_ID()));
+
+      if ($theParent || $hasChildren) : 
+        $parent_id = $theParent ? $theParent : get_the_ID();
+    ?>
+      <div class="page-links">
+        <h2 class="page-links__title">
+          <a href="<?= esc_url(get_permalink($parent_id)); ?>">
+            <?= get_the_title($parent_id); ?>
+          </a>
+        </h2>
+        <ul class="min-list">
+          <?php 
+            wp_list_pages(array(
+              'title_li' => NULL,
+              'child_of' => $parent_id,
+              'sort_column' => 'menu_order'
+            ));
+          ?>
+        </ul>
+      </div>
+    <?php endif; ?>
+
     <div class="generic-content">
       <?php the_content(); ?>
     </div>
