@@ -15,4 +15,20 @@ function university_features() {
     add_theme_support('title-tag');
 }
 
+function university_post_types() {
+    register_post_type('event', [
+        'public' => true,
+        'labels' => [
+            'name' => 'Events',
+            'add_new_item' => 'Add New Event',
+            'edit_item' => 'Edit Event',
+            'all_items' => 'All Events',
+            'singular_name' => 'Event'
+        ],
+        'menu_icon' => 'dashicons-calendar',
+        'supports' => ['title', 'editor', 'excerpt']
+    ]);
+}
+
 add_action('after_setup_theme', 'university_features');
+add_action('init', 'university_post_types');
