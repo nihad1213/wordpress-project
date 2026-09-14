@@ -2,6 +2,7 @@
 
 function university_post_types() {
     register_post_type('event', [
+        'has_archive' => true,
         'public' => true,
         'labels' => [
             'name' => 'Events',
