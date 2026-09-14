@@ -19,6 +19,9 @@ RUN docker-php-ext-configure gd --with-jpeg --with-webp --with-freetype \
     opcache \
     mbstring
 
+RUN mkdir -p /var/www/html/wp-content/uploads \
+    && chown -R www-data:www-data /var/www/html
+
 RUN a2enmod rewrite
 
 COPY php.ini /usr/local/etc/php/conf.d/wordpress.ini
