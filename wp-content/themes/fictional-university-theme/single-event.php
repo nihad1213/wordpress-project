@@ -27,6 +27,22 @@
       <?php the_content(); ?>
     </div>
 
+    <?php 
+      $program_id = get_post_meta(get_the_ID(), '_related_program_id', true);
+
+      if ($program_id && get_post_status($program_id) === 'publish') : ?>
+        <hr class="section-break">
+        <h2 class="headline headline--medium">Related Program</h2>
+        <ul class="link-list min-list">
+          <li>
+            <a href="<?= esc_url(get_permalink($program_id)); ?>">
+              <?= esc_html(get_the_title($program_id)); ?>
+            </a>
+          </li>
+        </ul>
+      <?php endif; 
+    ?>
+
   </div>
 
 <?php endwhile; ?>
