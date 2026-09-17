@@ -1,0 +1,1 @@
+This is just a simple WordPress project for testing WordPress, custom post types, and doing a few experiments with WordPress.
